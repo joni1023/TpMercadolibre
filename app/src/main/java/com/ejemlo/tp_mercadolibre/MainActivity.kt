@@ -1,6 +1,5 @@
 package com.ejemlo.tp_mercadolibre
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        
 
 
     }
@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item!!.itemId)
         {
-            R.id.menu_buscar -> startActivity(Intent(this@MainActivity,Products::class.java))
-            R.id.textsearch -> startActivity(Intent(this@MainActivity,Products::class.java))
-            R.id.cart -> Toast.makeText(this@MainActivity, "No ha nada en el carrito", Toast.LENGTH_SHORT).show()
+            R.id.cart -> Toast.makeText(this@MainActivity, "No ha nada en el carri", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }

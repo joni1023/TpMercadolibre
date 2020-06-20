@@ -4,20 +4,17 @@
     xmlns:tools="http://schemas.android.com/ tools"
     tools:context=".MainActivity">
 
-    <item android:title="Buscar"
-        android:id="@+id/menu_buscar"
-        android:icon="@android:drawable/ic_menu_search"
-        app:showAsAction="always|collapseActionView"/>
     <item
-        android:id="@+id/textsearch"
-        android:checkable="false"
-        android:checked="false"
-
-        android:title="Buscar ml                                    "
+        android:id="@+id/search_menu"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:orderInCategory="1"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
         app:showAsAction="always" />
     <item
         android:id="@+id/cart"
         android:icon="@drawable/ic_baseline_shopping_cart_24"
-        android:title=""
+        android:orderInCategory="2"
+        android:title=" "
         app:showAsAction="always|withText" />
 </menu>
