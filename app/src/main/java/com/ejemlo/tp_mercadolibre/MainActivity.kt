@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuItemCompat
@@ -51,7 +52,16 @@ class MainActivity : AppCompatActivity() {
         productosAdapter.setProductoClickeListener(object: ProductClickedListener{
             override fun onProductClicked(producto: Productos) {
 //                Toast.makeText(this@MainActivity, producto.title, Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this@MainActivity,Products::class.java))
+//                val intent =Intent(this@MainActivity,::class.java)
+//                var datoid : TextView = (TextView)findViewById<TextView>(R.id.id_item)
+//                val b :Bundle = Bundle()
+//                b.putString("idProduct",datoid.getText())
+//                intent.putExtras(b)
+//
+//                startActivity(intent)
+                val intent = Intent(this@MainActivity, Products::class.java)
+                intent.putExtra("idProduct", producto.id)
+                startActivity(intent)
             }
         })
 
@@ -67,15 +77,10 @@ class MainActivity : AppCompatActivity() {
                 searchTo(query)
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
-
         })
-
-
         return true
     }
 
@@ -105,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 
                         }
                     }
-                })
+            })
         }
     }
 

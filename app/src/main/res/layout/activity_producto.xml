@@ -27,11 +27,11 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imageProduct"
                 android:layout_width="404dp"
                 android:layout_height="379dp"
                 android:layout_marginTop="64dp"
-                android:src="@drawable/product"
+                
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="27dp"
                 android:text="NUEVO"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/imageProduct" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -61,7 +61,7 @@
                 app:layout_constraintGuide_begin="384dp" />
 
             <TextView
-                android:id="@+id/Descripcion"
+                android:id="@+id/tituloProducto"
                 android:layout_width="358dp"
                 android:layout_height="67dp"
                 android:text="Notebook Asus Intel Dual Core Hd Usb Hdmi 15.6 4gb 500gb "
@@ -77,7 +77,7 @@
                 android:text="$ 69.999"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
-                app:layout_constraintTop_toBottomOf="@+id/Descripcion"
+                app:layout_constraintTop_toBottomOf="@+id/tituloProducto"
                 tools:ignore="MissingConstraints" />
 
             <TextView

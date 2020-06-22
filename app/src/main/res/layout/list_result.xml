@@ -38,8 +38,8 @@
             android:id="@+id/favorite"
             android:layout_width="30dp"
             android:layout_height="25dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_heart" />
@@ -48,18 +48,17 @@
             android:id="@+id/condicion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:text="Condicion"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
         <TextView
             android:id="@+id/precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
             android:layout_marginBottom="8dp"
             android:text="TextView"
             android:textSize="24sp"
@@ -75,9 +74,20 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             app:layout_constraintBottom_toTopOf="@+id/precio"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.117"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/guideline4"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.78" />
+            app:layout_constraintVertical_bias="0.783" />
+
+        <TextView
+            android:id="@+id/id_item"
+            android:layout_width="72dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="40dp"
+            android:text="ML342"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/guideline4"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

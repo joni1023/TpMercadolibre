@@ -26,9 +26,9 @@ class ProductosAdapter:RecyclerView.Adapter<ProductoViewHolder>() {
     override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
         val productos :Productos =productoList[position]
         holder.titulo.text=productos.title
-        holder.precio.text=productos.price
+        holder.precio.text="$"+productos.price
         holder.condicion.text=productos.condition
-
+        holder.id.text=productos.id
         Picasso.get()
             .load(productos.thumbnail)
             .into(holder.image)
@@ -53,6 +53,7 @@ class ProductoViewHolder(view: View):RecyclerView.ViewHolder(view){
     val titulo :TextView =view.findViewById(R.id.titulo)
     val precio :TextView =view.findViewById(R.id.precio)
     val condicion :TextView =view.findViewById(R.id.condicion)
+    val id :TextView =view.findViewById(R.id.id_item)
 
 }
 
