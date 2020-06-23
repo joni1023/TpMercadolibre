@@ -64,7 +64,11 @@ data class Attributes (
 )
 
 data class Descriptions (
-    val id :String
+    @SerializedName("id") val id : String,
+    @SerializedName("created") val created : String,
+    @SerializedName("text") val text : String,
+    @SerializedName("plain_text") val plain_text : String
+//    @SerializedName("snapshot") val snapshot : Snapshot
 )
 
 data class Pictures (

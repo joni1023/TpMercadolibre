@@ -8,12 +8,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ejemlo.tp_mercadolibre.io.API
 import com.ejemlo.tp_mercadolibre.io.ProductosAdapter
+import com.ejemlo.tp_mercadolibre.model.Descriptions
 import com.ejemlo.tp_mercadolibre.model.Item
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class Products : AppCompatActivity() {
     private lateinit var apiService : API
@@ -60,17 +62,43 @@ class Products : AppCompatActivity() {
         var cantidad = findViewById<TextView>(R.id.Cantidad)
         var condicion = findViewById<TextView>(R.id.Condicion)
         var image = findViewById<ImageView>(R.id.imageProduct)
+        var descripcion =findViewById<TextView>(R.id.producto_descrpcion)
 
         titulo.text = body.title
         precio.text = "$" + body.price
         cantidad.text = "Cantidad: " + body.available_quantity
         condicion.text =body.condition
+        getDescripProduct(body.id)
 
         Picasso.get()
             .load(body.thumbnail)
             .into(image)
 
     }
+
+    private fun getDescripProduct(id: String){
+        var descripcion =findViewById<TextView>(R.id.producto_descrpcion)
+        id?.run {
+            apiService.getDescriptions(id).enqueue(object : Callback<List<Descriptions>>{
+                override fun onFailure(call: Call<List<Descriptions>>, t: Throwable) {
+                    showError(t)
+
+                }
+
+                override fun onResponse(call: Call<List<Descriptions>>, response: Response<List<Descriptions>>
+                ) {
+                    if(response.isSuccessful){
+                        descripcion.text= (response.body()!!).first().plain_text
+                    }else{
+                        Toast.makeText(this@Products, "otro error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+            })
+        }
+
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_product, menu)

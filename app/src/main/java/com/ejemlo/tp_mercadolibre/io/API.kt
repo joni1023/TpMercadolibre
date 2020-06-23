@@ -1,6 +1,7 @@
 package com.ejemlo.tp_mercadolibre.io
 
 import com.ejemlo.tp_mercadolibre.Products
+import com.ejemlo.tp_mercadolibre.model.Descriptions
 import com.ejemlo.tp_mercadolibre.model.Item
 import com.ejemlo.tp_mercadolibre.model.SearchResult
 import retrofit2.Call
@@ -20,6 +21,9 @@ class API {
 
     fun getItem(id : String) : Call<Item> {
         return service.getItem(id)
+    }
+    fun getDescriptions(id:String) :Call<List<Descriptions>>{
+        return service.getDescription(id)
     }
 
 }

@@ -31,7 +31,7 @@
                 android:layout_width="404dp"
                 android:layout_height="379dp"
                 android:layout_marginTop="64dp"
-                
+
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="27dp"
-                android:text="NUEVO"
+                android:text="@string/condicionProducto"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/imageProduct" />
 
@@ -64,7 +64,7 @@
                 android:id="@+id/tituloProducto"
                 android:layout_width="358dp"
                 android:layout_height="67dp"
-                android:text="Notebook Asus Intel Dual Core Hd Usb Hdmi 15.6 4gb 500gb "
+                android:text="@string/tituloProducto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -74,7 +74,7 @@
                 android:id="@+id/Precio"
                 android:layout_width="194dp"
                 android:layout_height="59dp"
-                android:text="$ 69.999"
+                android:text="@string/precioProducto"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/tituloProducto"
@@ -84,7 +84,7 @@
                 android:id="@+id/Cantidad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cantidad: 33"
+                android:text="@string/cantidadProducto"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/Precio" />
 
@@ -92,8 +92,9 @@
                 android:id="@+id/button_comprar"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:background="#0000FF"
-                android:text="Comprar"
+                android:layout_marginTop="20dp"
+                android:background="#E66848DD"
+                android:text="@string/comprar"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintHorizontal_bias="0.482"
@@ -105,11 +106,21 @@
                 android:id="@+id/button_add"
                 android:layout_width="329dp"
                 android:layout_height="wrap_content"
-                android:text="Agregar al Carrito"
+                android:layout_marginTop="20dp"
+                android:text="@string/agregaralCarrito"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/button_comprar"
                 tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/producto_descrpcion"
+                android:layout_width="353dp"
+                android:layout_height="190dp"
+                android:text="@string/descripcionProducto"
+                android:textAlignment="textStart"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toBottomOf="@+id/button_add" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

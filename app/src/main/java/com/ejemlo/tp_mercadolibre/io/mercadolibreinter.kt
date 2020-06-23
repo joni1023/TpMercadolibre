@@ -1,5 +1,6 @@
 package com.ejemlo.tp_mercadolibre.io
 
+import com.ejemlo.tp_mercadolibre.model.Descriptions
 import com.ejemlo.tp_mercadolibre.model.Item
 import com.ejemlo.tp_mercadolibre.model.SearchResult
 import retrofit2.Call
@@ -13,5 +14,8 @@ interface mercadolibreinter {
 
     @GET("items/{itemId}")
     fun getItem(@Path("itemId") id: String): Call<Item>
+
+    @GET("items/{itemId}/descriptions")
+    fun getDescription(@Path("itemId") id: String) : Call<List<Descriptions>>
 
 }
