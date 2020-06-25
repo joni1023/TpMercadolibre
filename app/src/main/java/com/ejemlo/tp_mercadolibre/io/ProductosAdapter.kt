@@ -29,6 +29,15 @@ class ProductosAdapter:RecyclerView.Adapter<ProductoViewHolder>() {
         holder.precio.text="$"+productos.price
         holder.condicion.text=productos.condition
         holder.id.text=productos.id
+        if(productos.address.city_name.equals(productos.address.state_name))
+            holder.direccion.text=productos.address.city_name
+        else
+        holder.direccion.text=productos.address.city_name+","+productos.address.state_name
+
+        holder.modeoventa.text=productos.buying_mode
+        if (productos.accepts_mercado)
+        holder.mercadopago.text="Mercadopaogo"
+
         Picasso.get()
             .load(productos.thumbnail)
             .into(holder.image)
@@ -54,6 +63,9 @@ class ProductoViewHolder(view: View):RecyclerView.ViewHolder(view){
     val precio :TextView =view.findViewById(R.id.precio)
     val condicion :TextView =view.findViewById(R.id.condicion)
     val id :TextView =view.findViewById(R.id.id_item)
+    val direccion :TextView =view.findViewById(R.id.direccion)
+    val modeoventa: TextView = view.findViewById(R.id.modoventa)
+    val mercadopago :TextView =view.findViewById(R.id.mercadopago)
 
 }
 

@@ -51,14 +51,6 @@ class MainActivity : AppCompatActivity() {
         reciclerView.adapter=productosAdapter
         productosAdapter.setProductoClickeListener(object: ProductClickedListener{
             override fun onProductClicked(producto: Productos) {
-//                Toast.makeText(this@MainActivity, producto.title, Toast.LENGTH_SHORT).show()
-//                val intent =Intent(this@MainActivity,::class.java)
-//                var datoid : TextView = (TextView)findViewById<TextView>(R.id.id_item)
-//                val b :Bundle = Bundle()
-//                b.putString("idProduct",datoid.getText())
-//                intent.putExtras(b)
-//
-//                startActivity(intent)
                 val intent = Intent(this@MainActivity, Products::class.java)
                 intent.putExtra("idProduct", producto.id)
                 startActivity(intent)
@@ -104,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                         if(response.isSuccessful){
                             val respuesta :SearchResult = response.body()!!
                             productosAdapter.UpdateProductos(respuesta.results)
+                            Toast.makeText(this@MainActivity, "hubo "+respuesta.paging.total+" de Resultados", Toast.LENGTH_SHORT).show()
                             productosAdapter.notifyDataSetChanged()
                         }else{
                             Toast.makeText(this@MainActivity, "no funca", Toast.LENGTH_SHORT).show()
