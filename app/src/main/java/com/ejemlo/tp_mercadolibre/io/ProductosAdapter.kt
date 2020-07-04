@@ -27,7 +27,10 @@ class ProductosAdapter:RecyclerView.Adapter<ProductoViewHolder>() {
         val productos :Productos =productoList[position]
         holder.titulo.text=productos.title
         holder.precio.text="$"+productos.price
-        holder.condicion.text=productos.condition
+        if (productos.condition.equals("new"))
+            holder.condicion.text="nuevo"
+        else
+            holder.condicion.text="usado"
         holder.id.text=productos.id
         if(productos.address.city_name.equals(productos.address.state_name))
             holder.direccion.text=productos.address.city_name

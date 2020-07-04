@@ -7,7 +7,7 @@ data class Item (
 //    @SerializedName("site_id") val site_id : String,
     @SerializedName("title") val title : String,
 //    @SerializedName("subtitle") val subtitle : String,
-//    @SerializedName("seller_id") val seller_id: Int,
+    @SerializedName("seller_id") val seller_id: Int,
 //    @SerializedName("category_id") val category_id : String,
 //    @SerializedName("official_store_id") val official_store_id : String,
     @SerializedName("price") val price : String,
@@ -18,18 +18,19 @@ data class Item (
     @SerializedName("available_quantity") val available_quantity : String,
 //    @SerializedName("sold_quantity") val sold_quantity : Int,
 //    @SerializedName("sale_terms") val sale_terms : List<SaleTerms>,
-//    @SerializedName("buying_mode") val buying_mode : String,
+    @SerializedName("buying_mode") val buying_mode : String,
 //    @SerializedName("listing_type_id") val listing_type_id : String,
 //    @SerializedName("start_time") val start_time : String,
 //    @SerializedName("stop_time") val stop_time : String,
     @SerializedName("condition") val condition : String,
 //    @SerializedName("permalink") val permalink : String,
-    @SerializedName("thumbnail") val thumbnail : String
+    @SerializedName("thumbnail") val thumbnail : String,
 //    @SerializedName("secure_thumbnail") val secure_thumbnail : String,
 //    @SerializedName("pictures") val pictures : List<Pictures>,
 //    @SerializedName("video_id") val video_id : String,
 //    @SerializedName("descriptions") val descriptions : List<Descriptions>,
-//    @SerializedName("accepts_mercadopago") val accepts_mercadopago : Boolean,
+    @SerializedName("accepts_mercadopago") val accepts_mercadopago : Boolean,
+    @SerializedName("seller_address") val seller_address : ItemAddress
 //    @SerializedName("non_mercado_pago_payment_methods") val non_mercado_pago_payment_methods : List<String>,
 //    @SerializedName("international_delivery_mode") val international_delivery_mode : String,
 //    @SerializedName("geolocation") val geolocation : Geolocation,
@@ -68,7 +69,7 @@ data class Descriptions (
     @SerializedName("created") val created : String,
     @SerializedName("text") val text : String,
     @SerializedName("plain_text") val plain_text : String
-//    @SerializedName("snapshot") val snapshot : Snapshot
+
 )
 
 data class Pictures (
@@ -81,6 +82,14 @@ data class Pictures (
     @SerializedName("quality") val quality : String
 )
 
-data class SaleTerms (
-    val id :String
+data class ItemAddress(
+    @SerializedName("city") val city : City,
+    @SerializedName("state") val state :State
+)
+data class City(
+    @SerializedName("name") val name :String
+)
+data class State(
+    @SerializedName("name") val name :String
+
 )

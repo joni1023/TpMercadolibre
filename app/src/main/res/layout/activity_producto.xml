@@ -20,11 +20,11 @@
         tools:layout_editor_absoluteY="2dp" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:ignore="MissingConstraints">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageProduct"
@@ -117,6 +117,7 @@
                 android:id="@+id/producto_descrpcion"
                 android:layout_width="353dp"
                 android:layout_height="190dp"
+                android:layout_marginTop="148dp"
                 android:text="@string/descripcionProducto"
                 android:textAlignment="textStart"
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"

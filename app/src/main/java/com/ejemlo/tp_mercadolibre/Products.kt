@@ -5,6 +5,7 @@ import android.view.Menu
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import com.ejemlo.tp_mercadolibre.io.API
 import com.ejemlo.tp_mercadolibre.io.ProductosAdapter
@@ -57,12 +58,12 @@ class Products : AppCompatActivity() {
     }
 
     private fun guardarProduct(body: Item) {
-        var titulo= findViewById<TextView>(R.id.tituloProducto)
-        var precio = findViewById<TextView>(R.id.Precio)
-        var cantidad = findViewById<TextView>(R.id.Cantidad)
-        var condicion = findViewById<TextView>(R.id.Condicion)
-        var image = findViewById<ImageView>(R.id.imageProduct)
-        var descripcion =findViewById<TextView>(R.id.producto_descrpcion)
+        val titulo= findViewById<TextView>(R.id.tituloProducto)
+        val precio = findViewById<TextView>(R.id.Precio)
+        val cantidad = findViewById<TextView>(R.id.Cantidad)
+        val condicion = findViewById<TextView>(R.id.Condicion)
+        val image = findViewById<ImageView>(R.id.imageProduct)
+
 
         titulo.text = body.title
         precio.text = "$" + body.price
@@ -77,7 +78,7 @@ class Products : AppCompatActivity() {
     }
 
     private fun getDescripProduct(id: String){
-        var descripcion =findViewById<TextView>(R.id.producto_descrpcion)
+        val descripcion =findViewById<TextView>(R.id.producto_descrpcion)
         id?.run {
             apiService.getDescriptions(id).enqueue(object : Callback<List<Descriptions>>{
                 override fun onFailure(call: Call<List<Descriptions>>, t: Throwable) {

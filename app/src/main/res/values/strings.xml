@@ -7,5 +7,9 @@
     <string name="condicionProducto">Usado</string>
     <string name="comprar">Comprar</string>
     <string name="agregaralCarrito">Agregar al Carrito</string>
+    <string name="modoventa">Compra inmediata</string>
+    <string name="direccion">CABA, Belgrano</string>
+    <string name="mercadopago">Acepta Mercadopago</string>
+    <string name="idML">ML1454755124</string>
 
 </resources>

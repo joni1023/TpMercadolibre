@@ -28,6 +28,7 @@
             android:id="@+id/image"
             android:layout_width="155dp"
             android:layout_height="126dp"
+            android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintHorizontal_bias="0.0"
@@ -50,8 +51,8 @@
             android:id="@+id/condicion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="Condicion"
+            android:layout_marginStart="15dp"
+            android:text="@string/condicionProducto"
             app:layout_constraintBottom_toTopOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image"
@@ -61,8 +62,9 @@
             android:id="@+id/precio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:layout_marginBottom="8dp"
-            android:text="TextView"
+            android:text="@string/precioProducto"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/direccion"
             app:layout_constraintStart_toStartOf="@+id/guideline4" />
@@ -71,21 +73,21 @@
             android:id="@+id/titulo"
             android:layout_width="209dp"
             android:layout_height="47dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="15dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="TextView"
+            android:text="@string/tituloProducto"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             app:layout_constraintBottom_toTopOf="@+id/precio"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/mercadopago"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
         <TextView
             android:id="@+id/id_item"
             android:layout_width="72dp"
             android:layout_height="12dp"
-            android:text="ML342"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/idML"
             android:textSize="10sp"
             app:layout_constraintBottom_toTopOf="@+id/image"
             app:layout_constraintStart_toStartOf="parent" />
@@ -94,31 +96,35 @@
             android:id="@+id/direccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="93dp"
+            android:layout_marginStart="15dp"
             android:layout_marginBottom="8dp"
-            android:text="direccion"
-            app:layout_constraintBottom_toTopOf="@+id/modoventa"
-            app:layout_constraintEnd_toStartOf="@+id/modoventa"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:text="@string/direccion"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
         <TextView
             android:id="@+id/mercadopago"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="mercadopago"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="166dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="8dp"
+            android:background="#C02CDA"
+            android:backgroundTint="#9C27B0"
+            android:text="@string/mercadopago"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toTopOf="@+id/modoventa"
+            app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
         <TextView
             android:id="@+id/modoventa"
             android:layout_width="79dp"
             android:layout_height="19dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="12dp"
-            android:text="modeoventa"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/modoventa"
+            app:layout_constraintBottom_toTopOf="@+id/titulo"
             app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
