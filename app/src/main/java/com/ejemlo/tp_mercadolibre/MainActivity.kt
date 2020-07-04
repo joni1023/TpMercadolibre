@@ -30,13 +30,15 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         injectDependencies()
         setupRecyclerview()
-        //progressBar =findViewById(R.id.indeterminateBar)
+
+
     }
 
     private fun injectDependencies(){
@@ -84,6 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchTo(query: String?){
+        mostrarProgreso(true)
         query?.run {
             apiService.search(query).enqueue(object :Callback<SearchResult> {
                     override fun onFailure(call: Call<SearchResult>, t: Throwable) {
@@ -95,6 +98,7 @@ class MainActivity : AppCompatActivity() {
                         if(response.isSuccessful){
                             val respuesta :SearchResult = response.body()!!
                             productosAdapter.UpdateProductos(respuesta.results)
+                            mostrarProgreso(false)
                             Toast.makeText(this@MainActivity, "hubo "+respuesta.paging.total+" de Resultados", Toast.LENGTH_SHORT).show()
                             productosAdapter.notifyDataSetChanged()
 
@@ -111,6 +115,12 @@ class MainActivity : AppCompatActivity() {
     private fun showError(t:Throwable) {
         Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
     }
+    private fun mostrarProgreso( b: Boolean){
+        if(b)
+            progressBar.visibility=View.VISIBLE
+        else
+            progressBar.visibility=View.GONE
 
+    }
 
 }
