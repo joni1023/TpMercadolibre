@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TP_Mercadolibre</string>
+    <string name="app_name">MarketFree</string>
     <string name="tituloProducto">Notebook Asus Intel Dual Core Hd Usb Hdmi 15.6 4gb 500gb </string>
     <string name="precioProducto">$ 69.999</string>
     <string name="cantidadProducto">Cantidad Disponible: 33</string>
