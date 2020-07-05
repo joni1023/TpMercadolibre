@@ -5,21 +5,26 @@
       <w>cantidad</w>
       <w>clicklinstener</w>
       <w>condicion</w>
+      <w>conexion</w>
       <w>descrip</w>
       <w>descripcion</w>
       <w>errror</w>
       <w>guardar</w>
       <w>mercadopago</w>
+      <w>mostrar</w>
       <w>mydescrption</w>
       <w>pago</w>
       <w>precio</w>
       <w>producto</w>
       <w>productos</w>
+      <w>progreso</w>
       <w>recicler</w>
+      <w>redes</w>
       <w>relist</w>
       <w>respuesta</w>
       <w>serviceml</w>
       <w>titulo</w>
+      <w>verificar</w>
     </words>
   </dictionary>
 </component>

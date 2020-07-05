@@ -1,15 +1,19 @@
 package com.ejemlo.tp_mercadolibre
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.*
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.MenuItemCompat
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ejemlo.tp_mercadolibre.io.API
@@ -27,6 +31,8 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var apiService : API
     private lateinit var productosAdapter: ProductosAdapter
+    private lateinit var constraintLayout: ConstraintLayout
+    private lateinit var snack : Snackbar
 
 
 
@@ -37,13 +43,14 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         injectDependencies()
         setupRecyclerview()
-
+        verificarConexion()
 
     }
 
     private fun injectDependencies(){
         apiService = API()
         productosAdapter = ProductosAdapter()
+        this.constraintLayout =findViewById(R.id.constraint)
     }
 
     private fun setupRecyclerview() {
@@ -68,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         viewSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 searchTo(query)
-                return true
+                return false
             }
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
@@ -91,6 +98,7 @@ class MainActivity : AppCompatActivity() {
             apiService.search(query).enqueue(object :Callback<SearchResult> {
                     override fun onFailure(call: Call<SearchResult>, t: Throwable) {
                         showError(t)
+                        mostrarProgreso(false)
                     }
 
                     override fun onResponse(call: Call<SearchResult>, response: Response<SearchResult>)
@@ -114,6 +122,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun showError(t:Throwable) {
         Toast.makeText(this@MainActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+        snack= Snackbar.make(constraint,"se ha cortado la comunicacion",Snackbar.LENGTH_LONG)
+        snack.show()
     }
     private fun mostrarProgreso( b: Boolean){
         if(b)
@@ -122,5 +132,28 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility=View.GONE
 
     }
+    private fun verificarConexion(){
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val networkInfo = connectivityManager.activeNetworkInfo
+        if (networkInfo != null && networkInfo.isConnected() && networkInfo.isAvailable()){
+            if(modeOffline()){
+                snack= Snackbar.make(constraint,"No hay conexion a internet",Snackbar.LENGTH_LONG)
+                snack.show()}
+        }
+        else{
+            snack= Snackbar.make(constraint,"no hay conexion",Snackbar.LENGTH_LONG)
+            snack.show()}
+    }
+    private fun modeOffline(): Boolean {
+        try {
+            val p = Runtime.getRuntime().exec("ping -c 1 www.google.es")
+            val valor = p.waitFor()
+            return valor == 2
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        return false
+    }
+
 
 }
